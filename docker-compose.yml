@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  homework_bot:
+    build: .
+    environment:
+      - PDF_FOLDER_PATH=/app/pdf_folder
+      - DISCORD_WEBHOOK_URL=your_discord_webhook_url
+    volumes:
+      - /opt/akad-homework:/app/pdf_folder  # Maps /opt/akad-homework from host to /app/pdf_folder in container
