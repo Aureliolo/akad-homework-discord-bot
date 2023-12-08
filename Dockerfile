@@ -1,4 +1,4 @@
-FROM python:3.8
+FROM python:3.11
 
 WORKDIR /app
 
@@ -8,4 +8,4 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-CMD ["python", "your_script_name.py"]
+CMD ["python", "bot.py"]
