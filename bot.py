@@ -4,16 +4,16 @@ import time
 import requests
 import pdfplumber
 
-# Configurable variables
-folder_path = "/path/to/pdf/folder"
-discord_webhook_url = "your_discord_webhook_url"
+# Environment Variables
+folder_path = os.getenv('PDF_FOLDER_PATH', '/app/pdf_folder')
+discord_webhook_url = os.getenv('DISCORD_WEBHOOK_URL')
 
 def extract_homework(file_path):
     with pdfplumber.open(file_path) as pdf:
         text = ""
         for page in pdf.pages:
             text += page.extract_text() + "\n"
-        # Add logic to extract specific homework text
+        # Customize the logic to extract specific homework text from 'text'
         return text
 
 def post_to_discord(message):
